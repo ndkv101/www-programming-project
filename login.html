@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    </head>
+    <body>
+		<div class="mx-auto" style="width: 600px;">
+			<div class="form-group" ng-controller="loginCtrl">
+				<form action="/" id="myLogin" form class="needs-validation" novalidate>
+
+					<div class="form-row">
+					
+						<div class="col-md-6 mb-3">
+					  <label for="validationCustom03">Username:</label>
+					  <input type="text" class="form-control" id="username" placeholder="Username" ng-model="username" required>
+					  <div class="invalid-feedback">
+						Please provide a valid username.
+					  </div>
+						
+						<div class="col-md-6 mb-3">
+					  <label for="validationCustom03">Password: </label>
+					  <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password" required>
+					  <div class="invalid-feedback">
+						Please provide a valid password.
+					  </div>
+					
+					</div>
+		
+					<button class="btn btn-primary" type="button" ng-click="submit()">Login</button>
+				</form>
+			</div>
+		</div>
+    </body>
+</html>

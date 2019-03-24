@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Runcode Editor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet"> 
+        <style>
+            textarea, iframe {
+                border: 2px solid #ddd;
+                height: 500px;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <table width="100%" border="0" cellspacing="5">
+            <tr>
+                <td width="50%" scope="col">&nbsp;</td>
+                <td width="50%" scope="col" align="left">
+                    <input onclick="runCode();" type="button" value ="Run Code">
+                </td>
+            </tr>
+            <td>
+                <form>
+                    <strong>Code</strong>
+                    <textarea name="sourceCode" id="sourceCode">
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="" ng-init="firstName='John';lastName='Doe'">
+
+<p>The full name is: <span ng-bind="firstName + ' ' + lastName"></span></p>
+
+</div>
+
+</body>
+</html>
+ 
+                    </textarea>
+                </form>
+            </td>
+            <td><strong>OutPut</strong><iframe name="targetCode" id="targetCode"></iframe></td>
+        </table>
+        <script>
+            function runCode() {
+                var content = document.getElementById('sourceCode').value;
+                var iframe = document.getElementById('targetCode');
+                iframe = (iframe.contentWindow)?iframe.contentWindow:(iframe.contentDocument)?iframe.contentDocument.document:iframe.contentDocument;
+                iframe.document.open();
+                iframe.document.write(content);
+                iframe.document.close();
+                return false;
+            }
+            runCode();
+        </script>
+    </body>
+</html>
